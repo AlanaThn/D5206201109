@@ -33,4 +33,10 @@ Route::post('sayhi',"ViewController@sayHi") ;
 Route::get('greetings2',"ViewController@showGreetings") ;
 Route::post('sayhi2',"ViewController@sayHi") ;
 
+//route CRUD
+Route::get('/pegawai','PegawaiController@index');
+Route::get('/pegawai/tambah','PegawaiController@tambah');
+
+Route::post('/pegawai/store','PegawaiController@store'); //store bisa diubah, sama2 simpen data
+
 
