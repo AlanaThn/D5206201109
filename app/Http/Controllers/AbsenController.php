@@ -21,11 +21,13 @@ class AbsenController extends Controller
 // method untuk menampilkan view form tambah absen
 public function tambah()
 {
+    $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
 
 	// memanggil view tambah
-	return view('absen.tambah');
+	return view('absen.tambah',['pegawai' => $pegawai]);
 
 }
+
 
 // method untuk insert data ke table absen
 public function store(Request $request)
@@ -46,10 +48,16 @@ public function edit($id)
 {
 	// mengambil data absen berdasarkan id yang dipilih
 	$absen = DB::table('absen')->where('ID',$id)->get();
+
+    $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
+
+    $status = "Sedang Mengedit" ;
+
 	// passing data absen yang didapat ke view edit.blade.php
-	return view('absen.edit',['absen' => $absen]);
+	return view('absen.edit',['absen' => $absen,'pegawai' => $pegawai,'status' => $status]);
 
 }
+
 
 // update data pegawai
 public function update(Request $request)
@@ -64,14 +72,14 @@ public function update(Request $request)
 	return redirect('/absen');
 }
 
-// method untuk hapus data pegawai
+// method untuk hapus data absen
 public function hapus($id)
 {
 	// menghapus data pegawai berdasarkan id yang dipilih
 	DB::table('absen')->where('ID',$id)->delete();
 
-	// alihkan halaman ke halaman pegawai
-	return redirect('/pegawai');
+	// alihkan halaman ke halaman absen
+	return redirect('/absen');
 }
 
 }

@@ -1,25 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tutorial Membuat CRUD Pada Laravel - www.malasngoding.com</title>
-</head>
-<body>
+@extends('layout.happy')
+@section('title', 'Data Absen')
+@section('judulhalaman', 'DATA ABSEN')
 
-	<h2><a href="https://www.malasngoding.com">www.malasngoding.com</a></h2>
-	<h3>Data Absen</h3>
+@section('konten')
+    <a href="/absen"> Kembali</a>
 
-	<a href="/absen"> Kembali</a>
+    <br />
+    <br />
 
-	<br/>
-	<br/>
+    <form action="/absen/store" method="post">
+        {{ csrf_field() }}
+        <div class="container">
 
-	<form action="/absen/store" method="post">
-		{{ csrf_field() }}
-		ID Pegawai <input type="text" name="idpegawai" pattern="[\d0-9]{0,}" maxlength="11" required="required"> <br/>
-		Tanggal <input type="datetime-local" name="tanggal" required="required"> <br/>
-		Status <input type="text" name="status" maxlength="1" required="required"> <br/>
-		<input type="submit" value="Simpan Data">
-	</form>
+            <div class="row">
+                <div class='col-lg-9'>
+                    <div class="form-group">
+                        <label for="nama" class="col-sm-2 control-label">Nama Pegawai :</label>
+                        <div class='col-sm-4 input-group date' id='nama'>
+                            <select class="form-control" name="idpegawai">
+                                @foreach($pegawai as $p )
+                                    <option value="{{ $p->pegawai_id }}"> {{ $p->pegawai_nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</body>
-</html>
+
+            <div class="row">
+                <div class='col-lg-9'>
+                    <div class="form-group">
+                        <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
+                        <div class='col-sm-4 input-group date' id='dtpickerdemo'>
+                            <input type='text' class="form-control" name="tanggal" required="required" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#dtpickerdemo').datetimepicker({
+                            format: "YYYY-MM-DD hh:mm:ss",
+                            "defaultDate": new Date(),
+                            locale : "id"
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+        Status
+        <input type="radio" id="h" name="status" value="H">
+        <label for="h">HADIR</label><br>
+        <input type="radio" id="a" name="status" value="A" checked="checked">
+        <label for="a">TIDAK HADIR</label><br>
+        <input type="submit" value="Simpan Data">
+    </form>
+@endsection
+

@@ -1,11 +1,13 @@
+@extends('layout.happy')
+@section('title', 'Data Absen')
+@section('judulhalaman', 'ABSEN')
+
+@section('konten')
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tutorial Membuat CRUD Pada Laravel - www.malasngoding.com</title>
 </head>
 <body>
-
-	<h2>www.malasngoding.com</h2>
 	<h3>Data Absen</h3>
 
 	<a href="/absen/tambah"> + Tambah Absen Baru</a>
@@ -37,3 +39,4 @@
 
 </body>
 </html>
+@endsection
