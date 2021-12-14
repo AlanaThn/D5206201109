@@ -1,7 +1,8 @@
 @extends('layout.happy')
-
+@section('css')
+    <link rel="stylesheet" href="/css/container.css">
+@endsection
 @section('title', 'Data Baju')
-@section('judulhalaman', 'EDIT DATA BAJU')
 
 @section('konten')
 
