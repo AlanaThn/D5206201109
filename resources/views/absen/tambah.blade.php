@@ -1,4 +1,7 @@
 @extends('layout.happy')
+@section('css')
+<link rel="stylesheet" href="/css/container.css">
+@endsection
 @section('title', 'Data Absen')
 @section('judulhalaman', 'DATA ABSEN')
 

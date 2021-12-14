@@ -2,7 +2,7 @@
 @section('css')
     <link rel="stylesheet" href="/css/container.css">
 @endsection
-@section('title', 'Data Absen')
+@section('title', 'Data Baju')
 
 @section('konten')
 
@@ -64,44 +64,58 @@
 
         </style>
 
-        <h2>Data Absen</h2>
 
-        <a href="/absen/tambah" style="background-color: #2e3757; border: none; color: white; padding: 12px 25px; text-align:
+        <h2>Data Baju</h2>
+
+        <a href="/baju/tambah" style="background-color: #2e3757; border: none; color: white; padding: 12px 25px; text-align:
         center; text-decoration: none; display: inline-block; font-size: 10px;
-        border-radius: 4px;"> + Tambah Absen Baru</a>
+        border-radius: 4px;"> + Tambah Data Baju Baru</a>
 
         <br />
         <br />
+
+        <div class="container" style="padding: 2px">
+            <p style="font-family:Arial, Helvetica, sans-serif">Cari Data Baju :</p>
+            <form action="/baju/cari" method="GET">
+                <input class="form-control" type="text" name="cari" style="width: 25%" placeholder="Cari Baju"
+                    value="{{ old('cari') }}">
+                <input class="form-control btn-warning" style="width: 8%;margin-top: 5px" type="submit" value="CARI">
+            </form>
+
+        </div>
 
         <table class="table table-light table-bordered">
             <tr class="table table-light table-bordered">
 
                 <table>
                     <tr>
-                        <th>Nama Pegawai</th>
-                        <th>Tanggal</th>
-                        <th>Status</th>
+                        <th>No</th>
+                        <th>Merk Baju</th>
+                        <th>Stock Baju</th>
+                        <th>Tersedia</th>
                         <th>Opsi</th>
                     </tr>
-                    @foreach ($absen as $a)
+                    @foreach ($baju as $b)
                         <tr>
-                            <td>{{ $a->pegawai_nama }}</td>
-                            <td>{{ $a->Tanggal }}</td>
-                            <td>{{ $a->Status }}</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $b->merkbaju }}</td>
+                            <td>{{ $b->stockbaju }}</td>
+                            <td>{{ $b->tersedia }}</td>
                             <td>
-                                <a href="/absen/edit/{{ $a->ID }}" class="btn btn-Success btn-sm"
+                                <a href="/baju/detail/{{ $b->kodebaju }}" class="btn btn-info btn-sm"
+                                    role="button">View Detail</a>
+
+                                <a href="/baju/edit/{{ $b->kodebaju }}" class="btn btn-warning btn-sm"
                                     role="button">Edit</a>
                                 |
-                                <a href="/absen/hapus/{{ $a->ID }}" class="btn btn-danger btn-sm"
+                                <a href="/baju/hapus/{{ $b->kodebaju }}" class="btn btn-danger btn-sm"
                                     role="button">Hapus</a>
                             </td>
                         </tr>
                     @endforeach
                 </table>
 
-                {{ $absen->links() }}
-            </tr>
-            </table>
+                {{ $baju->links() }}
 
     </body>
 

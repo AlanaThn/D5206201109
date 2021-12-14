@@ -1,4 +1,5 @@
 @extends('layout.happy')
+
 @section('title', 'Data Absen')
 @section('judulhalaman', 'EDIT DATA ABSEN')
 

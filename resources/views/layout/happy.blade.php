@@ -19,7 +19,7 @@
 
     <style>
 body{
-    padding: 50px;
+    padding: 20px;
     margin: 10px;
 }
 
@@ -30,23 +30,21 @@ body{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(8, 0, 116);
+  background-color: #2d3877;
   overflow-x: hidden;
   padding-top: 20px;
+
 }
 
 .sidenav a {
   padding: 6px 6px 6px 32px;
   text-decoration: none;
-  font-size: 20px;
-  font-family: Verdana;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
   color: #ffffff;
   display: block;
 }
 
-.sidenav a:hover {
-  color: #f1f1f1;
-}
 
 .main {
   margin-left: 200px; /* Same as the width of the sidenav */
@@ -58,40 +56,45 @@ body{
 }
     </style>
 
-<div class="main">
-<div class="container">
-    <img src="https://zedemy.com/wp-content/uploads/avatars/1665/61319398a4ebc-bpthumb.jpg"
-    class="rounded" alt="Mahasiswa" class="mx-auto d-block">
-    <p style="font-family:verdana;"> 5026201109 </p>
-    <p style="font-family:verdana;"> Alana Nabihah Thufailah </p>
-</div>
-</div>
+
 
 </head>
 
 <body>
 
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="http://127.0.0.1:8000/pegawai">Pegawai</a>
-        <a href="http://127.0.0.1:8000/absen">Absen</a>
+        <img src="https://zedemy.com/wp-content/uploads/avatars/1665/61319398a4ebc-bpthumb.jpg"
+        class="rounded" alt="Mahasiswa" class="mx-auto d-block" >
+        <p style="font-family: Arial, Helvetica, sans-serif;color: #ffffff;
+        text-align: center;"> 5026201109 </p>
+        <p style="font-family: Arial, Helvetica, sans-serif;color: #ffffff;
+        text-align: center;"> Alana Nabihah Thufailah </p>
+        <a href="/pegawai">Pegawai</a>
+        <a href="/absen">Absen</a>
         <a href="#">[PR]</a>
         <a href="#">Minggu Depan</a>
         <a href="#">Praktikum</a>
       </div>
 
-      <div class="main">
+      <div class="main" >
+          <br>
+          <br>
+
         @yield('judulhalaman')<br>
         @section('konten')
         @show
       </div>
 
+      <br>
+      <br>
+
 <footer>
     <div class="main">
         <div class="container">
-    <p style="font-family:verdana;"> Hak cipta oleh 5026201109 - Alana Nabihah Thufailah </p>
+    <p style="font-family: Arial, Helvetica, sans-serif; text-align:justify;"> Hak cipta oleh 5026201109 - Alana Nabihah Thufailah </p>
 </div>
 </div>
+
 </footer>
 </body>
 

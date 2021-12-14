@@ -1,8 +1,3 @@
-@extends('layout.happy')
-@section('title', 'Tugas')
-@section('judulhalaman', 'TUGAS')
-
-@section('konten')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,4 +90,4 @@
                 </div>
 </body>
 </html>
-@endsection
+
