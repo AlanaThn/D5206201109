@@ -73,7 +73,7 @@ body{
         <a href="/absen">Absen</a>
         <a href="#">[PR]</a>
         <a href="#">Minggu Depan</a>
-        <a href="#">Praktikum</a>
+        <a href="/baju">Praktikum 3</a>
       </div>
 
       <div class="main" >
